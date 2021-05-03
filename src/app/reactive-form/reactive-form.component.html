@@ -1,0 +1,69 @@
+<div class="main-container">
+    <div class="sub-container" fxLayout="column">
+        <mat-card fxLayout="column">
+            <form class="root-form" [formGroup]="reactiveForm" fxLayout="column">
+                <div fxLayout="row" fxFlex="100">
+                    <h2><strong>Reactive Form</strong></h2>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+                    <mat-form-field fxFlex="33" style="margin-left: 4px;" floatLabel="always">
+                        <mat-select placeholder="SELECT COUNTRY" formControlName="country" (selectionChange)="changeCountry($event)">
+                            <mat-option class="c-l fw-sb label-value-txt" *ngFor="let country of countryList" [value]="country">
+                                {{country.countryName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+                    <mat-checkbox required formcontrolName="checkboxValue">Are You Happy</mat-checkbox>
+                    <div></div>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+                    <mat-form-field fxFlex="33">
+                        <input matInput placeholder="Enter your email" formControlName="email" required>
+                        <mat-error *ngIf="reactiveForm.controls.email.hasError('required')">
+                            Please enter Email.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+                    <mat-form-field fxFlex="60" appearance="outline">
+                        <mat-label>Outline form field</mat-label>
+                        <textarea matInput placeholder="Textarea" formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+                    <mat-form-field fxFlex="40">
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="datepicker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+                    <mat-button-toggle-group formControlName="toggleBtn" appearance="legacy" name="fontStyle" aria-label="Font Style">
+                        <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+
+                </div>
+
+                <div fxLayout="row" fxFlex="100" class="field-border">
+
+                </div>
+            </form>
+        </mat-card>
+        <div fxLayout="row" fxLayoutAlign="end end" class="mt-20">
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Submit</button>
+        </div>
+    </div>
+</div>
