@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { RequestService } from './request.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomSearchComponent } from './custom-search/custom-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    CustomSearchComponent
   ],
   imports: [
     BrowserModule,

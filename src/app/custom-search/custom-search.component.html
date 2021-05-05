@@ -1,0 +1,13 @@
+<div class="sub-container">
+    <mat-form-field>
+        <input matInput input="text" placeholder="SEARCH" [(ngModel)]="searchText" (keyup.enter)="searchList()" (ngModelChange)="searchList($event)">
+    </mat-form-field>
+    <div *ngIf="listData">
+        <div *ngFor="let item of listData" fxLayout="column" style="width: 50%;">
+            <div fxLayout="row" fxFlex="100">{{item.first}} - {{item.last}}</div>
+        </div>
+    </div>
+    <p *ngIf="!listData">
+        No Data Found
+    </p>
+</div>>

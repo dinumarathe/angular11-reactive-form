@@ -1,4 +1,10 @@
-<mat-toolbar class="toolbar">
-    <span>DinoApp</span>
+<mat-toolbar class="toolbar" fxLayout="row">
+    <span fxFlex="20" fxLayout="column">DinoApp</span>
+    <nav fxFlex="80" fxLayout="column">
+        <ul class="router-list" fxLayout="row" fxLayoutAlign="end end">
+            <li fxLayout="column" class="list-item" routerLink="/reactive-form">Reactive Form</li>
+            <li fxLayout="column" class="list-item" routerLink="/custom-search">Custom Search</li>
+        </ul>
+    </nav>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -61,6 +61,7 @@ body {
     margin-left: auto !important;
     margin-right: auto !important;
     height: 100%;
+    margin: 50px;
 }
 
 .mat-button-toggle-checked {
