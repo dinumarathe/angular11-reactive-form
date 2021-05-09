@@ -105,7 +105,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatProgressBarModule,
     FlexLayoutModule,
     ScrollingModule
-  ]
+  ],
 })
 export class MaterialModule { }
 

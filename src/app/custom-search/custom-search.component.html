@@ -1,13 +1,20 @@
-<div class="sub-container">
+<div class="sub-container" fxLayout="column">
     <mat-form-field>
         <input matInput input="text" placeholder="SEARCH" [(ngModel)]="searchText" (keyup.enter)="searchList()" (ngModelChange)="searchList($event)">
     </mat-form-field>
-    <div *ngIf="listData">
-        <div *ngFor="let item of listData" fxLayout="column" style="width: 50%;">
-            <div fxLayout="row" fxFlex="100">{{item.first}} - {{item.last}}</div>
+    <div fxLayout="row" fxFlex="100">
+        <div fxLayout="column" fxFlex="50">
+            <div *ngIf="listData">
+                <div *ngFor="let item of listData" fxLayout="column">
+                    <div fxLayout="row" class="item" fxFlex="100" (click)="onSelect(item)">{{item.first}} - {{item.last}}</div>
+                </div>
+            </div>
+            <p *ngIf="!listData.length">
+                No Name Found
+            </p>
+        </div>
+        <div fxFlex="50" fxLayout="column" *ngIf="selectedFirst && selectedLast">
+            <div class="item">Name: {{selectedFirst}} {{selectedLast}} <span class="close" (click)="removeItem(item)">x</span></div>
         </div>
     </div>
-    <p *ngIf="!listData">
-        No Data Found
-    </p>
-</div>>
+</div>
